@@ -97,6 +97,8 @@ function SettingPanel({
       </div>
       <h6>Text</h6>
       <textarea value={text} className="text-area" onChange={handleChange} />
+
+      <span style={{ fontSize: 10 }}>Save on Arrow click</span>
     </div>
   );
 }
