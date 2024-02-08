@@ -1,5 +1,5 @@
 import "./App.css";
-import FlowArea from "./components/FlowArea/flowArea";
+import FlowArea from "./components/flowGraph/flowArea";
 import SidePanel from "./components/panel/panel";
 import Toolbar from "./components/toolbar/toolbar";
 function App() {

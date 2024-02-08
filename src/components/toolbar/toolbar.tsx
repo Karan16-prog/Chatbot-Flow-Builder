@@ -1,4 +1,4 @@
-import Button from "../common/button/button";
+import Button from "../button/button";
 import "./toolbar.css";
 import useStore from "../../store";
 import { useState } from "react";
