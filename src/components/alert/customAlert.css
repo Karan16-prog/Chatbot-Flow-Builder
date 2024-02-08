@@ -1,6 +1,6 @@
 .custom-alert {
     position: fixed;
-    top: 0;
+    top: 10;
     left: 50%;
     transform: translateX(-50%);
     background-color: #f8d7da;
