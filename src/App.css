@@ -1,0 +1,19 @@
+.container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas{
+  flex: 1;
+  display: flex;
+
+  height: 100%;
+  
+}
+
+.flowContainer{
+  flex: 1;
+
+}
+

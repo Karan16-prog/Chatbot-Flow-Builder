@@ -1,0 +1,51 @@
+.panel-container{
+    width: 400px;
+    border: 1px solid gray;
+   cursor: pointer;
+}
+
+.node-panel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    padding: 10px;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.node-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    border: 1px solid blue;
+    color: blue;
+    border-radius: 3px;
+    max-width: 178px;
+    width: 100%;
+}
+
+.text-area{
+    width: 100%;
+    height: 100px;
+}
+
+.setting-header{
+    border-bottom: 1px solid gray;
+    margin-bottom: 15px;
+}
+
+.setting-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 10px 20px 10px;
+    border-bottom: 1px solid gray;
+}
+
+h6{
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    font-size: 16px;
+    font-weight: 400;
+}

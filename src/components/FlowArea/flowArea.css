@@ -1,0 +1,31 @@
+.flow-area{
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+
+/* .flow-area .dndnode {
+    height: 20px;
+    padding: 4px;
+    border: 1px solid #1a192b;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+} */
+
+
+
+.flow-area .reactflow-wrapper {
+    flex-grow: 1;
+    height: 100%;
+}
+
+/* .flow-area .selectall {
+    margin-top: 10px;
+} */
+

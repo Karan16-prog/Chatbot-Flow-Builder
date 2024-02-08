@@ -1,0 +1,9 @@
+.toolbar-container{
+    background-color: rgb(243,243,243);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px 60px 10px 60px;
+}
+
+

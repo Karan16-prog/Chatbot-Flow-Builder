@@ -1,0 +1,12 @@
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+   
+}
