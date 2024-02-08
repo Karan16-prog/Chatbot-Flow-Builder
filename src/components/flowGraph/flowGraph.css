@@ -1,0 +1,14 @@
+.flow-area{
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+
+
+.flow-area .reactflow-wrapper {
+    flex-grow: 1;
+    height: 100%;
+}
+

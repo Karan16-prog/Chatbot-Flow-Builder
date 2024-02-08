@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import ReactFlow, {
   Connection,
   OnSelectionChangeParams,
@@ -6,14 +6,14 @@ import ReactFlow, {
   ReactFlowProvider,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import useStore from "../../store";
-import "./flowArea.css";
 import { nodeTypes } from "../../nodeConfig";
+import useStore from "../../store";
+import "./flowGraph.css";
 
 // generate mock ID
 const getId = () => `node_${Date.now()}`;
 
-const FlowArea = () => {
+const FlowGraph = () => {
   // fetch required states from store
   const reactFlowWrapper = useRef(null);
   const [
@@ -116,4 +116,4 @@ const FlowArea = () => {
   );
 };
 
-export default FlowArea;
+export default FlowGraph;
