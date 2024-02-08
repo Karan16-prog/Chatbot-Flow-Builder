@@ -1,19 +1,20 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import ReactFlow, {
   Connection,
-  Controls,
   OnSelectionChangeParams,
   ReactFlowInstance,
   ReactFlowProvider,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import useStore from "../../store";
-import MessageNode from "../nodes/message/message";
 import "./flowArea.css";
+import { nodeTypes } from "../../nodeConfig";
 
+// generate mock ID
 const getId = () => `node_${Date.now()}`;
 
 const FlowArea = () => {
+  // fetch required states from store
   const reactFlowWrapper = useRef(null);
   const [
     nodes,
@@ -23,14 +24,14 @@ const FlowArea = () => {
     onConnect,
     setNodes,
     setSelectedNode,
-  ] = useStore((s) => [
-    s.nodes,
-    s.edges,
-    s.onNodesChange,
-    s.onEdgesChange,
-    s.onConnect,
-    s.setNodes,
-    s.setSelectedNode,
+  ] = useStore((state) => [
+    state.nodes,
+    state.edges,
+    state.onNodesChange,
+    state.onEdgesChange,
+    state.onConnect,
+    state.setNodes,
+    state.setSelectedNode,
   ]);
   const [reactFlowInstance, setReactFlowInstance] =
     useState<ReactFlowInstance | null>(null);
@@ -40,6 +41,7 @@ const FlowArea = () => {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
+  // update nodes array after drag & drop of new node
   const onDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
       if (reactFlowInstance) {
@@ -67,6 +69,7 @@ const FlowArea = () => {
     [reactFlowInstance]
   );
 
+  // multiple source connection validation
   const validateEdge = useCallback(
     (connection: Connection) => {
       for (let i = 0; i < edges.length; i++) {
@@ -79,14 +82,13 @@ const FlowArea = () => {
     [edges]
   );
 
+  // store selected node in state
   const onSelect = useCallback((params: OnSelectionChangeParams) => {
     const k =
       params.nodes.length > 0 ? params.nodes[params.nodes.length - 1] : null;
 
     setSelectedNode(k);
   }, []);
-
-  const nodeTypes = useMemo(() => ({ messageNode: MessageNode }), []);
 
   return (
     <div className="flow-area">

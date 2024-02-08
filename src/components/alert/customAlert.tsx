@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./CustomAlert.css"; // Import CSS file for styling
+import { useEffect, useState } from "react";
+import "./CustomAlert.css";
 
 const CustomAlert = ({
   closeAlert,
@@ -17,7 +17,7 @@ const CustomAlert = ({
     }, 2000);
 
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   return visible ? (
     <div className="custom-alert">

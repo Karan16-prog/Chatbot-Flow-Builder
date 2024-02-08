@@ -13,6 +13,8 @@ import {
   applyEdgeChanges,
 } from "reactflow";
 
+// Store for state management. Refer to Zustand docs
+
 type RFState = {
   nodes: Node[];
   edges: Edge[];
@@ -26,6 +28,7 @@ type RFState = {
   updateNodes: (nodes: Node[]) => void;
 };
 
+// localstorage keys to get saved flow
 const initialNodeKey = "initialNodes";
 const initialEdgeKey = "initialEdges";
 

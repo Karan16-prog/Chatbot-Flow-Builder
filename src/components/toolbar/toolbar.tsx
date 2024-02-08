@@ -12,10 +12,13 @@ const Toolbar = () => {
   const saveFlow = () => {
     let targetSet = new Set();
     edges.forEach((ele) => targetSet.add(ele.target));
+
+    // on save click validation
     if (nodes.length > 1 && nodes.length - targetSet.size > 1) {
       setShowAlert(true);
       setAlertMessage("Cannot Save Flow");
     } else {
+      // save nodes and edges to localstorage
       localStorage.setItem("initialNodes", JSON.stringify(nodes));
       localStorage.setItem("initialEdges", JSON.stringify(edges));
       setAlertMessage("Saved Successfully!");

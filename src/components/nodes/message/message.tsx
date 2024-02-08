@@ -1,6 +1,7 @@
 import { Handle, Position } from "reactflow";
 import "./message.css";
 
+// custom message node
 function MessageNode({ data, selected }: { data: any; selected: boolean }) {
   return (
     <div className={`node-message ${selected ? "selected-node" : ""}`}>

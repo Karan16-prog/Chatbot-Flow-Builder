@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./panel.css";
 import useStore from "../../store";
 import { FormPreviousLink } from "grommet-icons";
+import { NODE_TYPE } from "../../nodeConfig";
 
 function SidePanel() {
   const [selectedNode, nodes, updateNodes] = useStore((state) => [
@@ -9,6 +10,8 @@ function SidePanel() {
     state.nodes,
     state.updateNodes,
   ]);
+
+  // callback function passed to setting panel to update node text
   const updateTextCallback = (text: string) => {
     nodes.forEach((node) => {
       if (node.id === selectedNode?.id) {
@@ -17,12 +20,6 @@ function SidePanel() {
         updateNodes([...nodes]);
       }
     });
-
-    // let idx = nodes.findIndex((ele: Node) => ele.id === selectedNode?.id);
-    // if (idx !== -1) {
-    //   nodes[idx].data.label = text;
-    //   updateNodes(nodes);
-    // }
   };
 
   return (
@@ -40,6 +37,7 @@ function SidePanel() {
 }
 
 function NodePanel() {
+  // passing node type to dragging event
   const dragNode = (
     event: React.DragEvent<HTMLDivElement>,
     nodeType: string
@@ -50,6 +48,7 @@ function NodePanel() {
 
   return (
     <div className="node-panel">
+      {/* Mapping all NODE_TYPE from nodeConfig */}
       {NODE_TYPE.map((node) => (
         <div
           onDragStart={(event) => dragNode(event, node.type)}
@@ -77,6 +76,7 @@ function SettingPanel({
     setText(event.target.value);
   };
 
+  // calls the callback fn to update node text
   const updateNode = () => {
     updateText(text);
   };
@@ -100,13 +100,5 @@ function SettingPanel({
     </div>
   );
 }
-
-const NODE_TYPE = [
-  {
-    id: 1,
-    label: "Message",
-    type: "messageNode",
-  },
-];
 
 export default SidePanel;
