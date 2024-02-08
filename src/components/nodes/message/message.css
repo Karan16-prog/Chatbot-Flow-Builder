@@ -15,7 +15,8 @@
 }
 
 .selected-node{
-    border: 2px solid blue;
+    border: 2px solid rgb(91, 96, 153);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .text-updater-node label {

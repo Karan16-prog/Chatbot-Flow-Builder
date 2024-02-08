@@ -1,6 +1,7 @@
 .button-container{
-    color: blue;
-    border: 1px solid blue;
+    color: rgb(91,96,153);
+    border: 2px solid rgb(91,96,153);
     border-radius: 5px;
     padding: 10px 20px;
+    cursor: pointer;
 }

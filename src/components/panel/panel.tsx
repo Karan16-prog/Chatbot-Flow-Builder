@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./panel.css";
 import useStore from "../../store";
-import { Node } from "reactflow";
+import { FormPreviousLink } from "grommet-icons";
 
 function SidePanel() {
   const [selectedNode, nodes, updateNodes] = useStore((state) => [
@@ -10,11 +10,19 @@ function SidePanel() {
     state.updateNodes,
   ]);
   const updateTextCallback = (text: string) => {
-    let idx = nodes.findIndex((ele: Node) => ele.id === selectedNode?.id);
-    if (idx !== -1) {
-      nodes[idx].data.label = text;
-      updateNodes(nodes);
-    }
+    nodes.forEach((node) => {
+      if (node.id === selectedNode?.id) {
+        node.data.label = text;
+        node.selected = false;
+        updateNodes([...nodes]);
+      }
+    });
+
+    // let idx = nodes.findIndex((ele: Node) => ele.id === selectedNode?.id);
+    // if (idx !== -1) {
+    //   nodes[idx].data.label = text;
+    //   updateNodes(nodes);
+    // }
   };
 
   return (
@@ -66,14 +74,26 @@ function SettingPanel({
   const [text, setText] = useState(currentText);
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    updateText(event.target.value);
     setText(event.target.value);
+  };
+
+  const updateNode = () => {
+    updateText(text);
   };
 
   return (
     <div className="setting-container">
       <div className="setting-header">
-        <div>Message</div>
+        <div
+          onClick={updateNode}
+          style={{
+            cursor: "pointer",
+          }}
+        >
+          <FormPreviousLink size="medium" />
+        </div>
+
+        <div style={{ margin: "auto" }}>Message</div>
       </div>
       <h6>Text</h6>
       <textarea value={text} className="text-area" onChange={handleChange} />
