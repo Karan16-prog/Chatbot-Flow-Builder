@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import "./CustomAlert.css";
-
+import "./customAlert.css";
 const CustomAlert = ({
   closeAlert,
   message,
